@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = BoardingViewController()
 //        self.window?.rootViewController = UINavigationController(rootViewController: MessagesController())
-        //self.window?.rootViewController = LoginController()
+        //self.window?.rootViewController = SignInViewController()
         self.window?.makeKeyAndVisible()
         
         return true

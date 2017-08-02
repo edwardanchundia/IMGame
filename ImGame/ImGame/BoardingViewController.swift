@@ -32,10 +32,12 @@ class BoardingViewController: UIViewController {
 //                self.present(signinViewController, animated: true, completion: nil)
 //            }
 //        })
+        
         if FIRAuth.auth()?.currentUser != nil {
             let navigationController = UINavigationController(rootViewController: DashboardViewController())
             self.present(navigationController, animated: true, completion: nil)
         } else {
+            print("No Current User")
             let signinViewController = SignInViewController()
             self.present(signinViewController, animated: true, completion: nil)
         }

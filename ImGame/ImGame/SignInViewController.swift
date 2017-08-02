@@ -14,6 +14,8 @@ import FirebaseAuth
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
     
     var signIn: SignInView!
+    
+    var messagesController: MessagesController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +27,47 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         
         view.backgroundColor = .white
         signIn.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets.zero)
+        
+        signIn.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loginButtonPressed() {
+        do {
+            print("Logged out")
+            try FIRAuth.auth()?.signOut()
+        }
+        catch {
+            print("something")
+        }
+        
+        
+        guard let email = signIn.emailTextField.text, let password = signIn.passwordTextField.text else {
+            print("Form is not valid")
+            return
+        }
+        
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            
+            if error != nil {
+                print(error ?? "")
+                return
+            }
+            
+            //successfully logged in our user
+            
+            self.messagesController?.fetchUserAndSetupNavBarTitle()
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            let navigationController = UINavigationController(rootViewController: DashboardViewController())
+            self.present(navigationController, animated: true, completion: nil)
+            
+        })
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
