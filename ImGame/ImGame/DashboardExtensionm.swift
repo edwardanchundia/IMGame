@@ -96,7 +96,6 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout, UICollect
         
         if recognizer.direction == .right{
             print("Right Swiped")
-            
         } else if recognizer.direction == .left {
             print("Left Swiped")
         } else if recognizer.direction == .down {

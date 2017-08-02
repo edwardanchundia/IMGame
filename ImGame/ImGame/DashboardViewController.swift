@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class DashboardViewController: UIViewController {
     
@@ -32,6 +33,8 @@ class DashboardViewController: UIViewController {
         dashboardView.carousel.delegate = self
         dashboardView.carousel.dataSource = self
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOutPressed))
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Message", style: .plain, target: self, action: #selector(pushToMessagingController))
 
         fetchUser()
@@ -40,6 +43,19 @@ class DashboardViewController: UIViewController {
     func pushToMessagingController() {
         let messageingController = MessagesController()
         navigationController?.pushViewController(messageingController, animated: true)
+    }
+    
+    func signOutPressed() {
+        do {
+            try FIRAuth.auth()?.signOut()
+            _ = self.navigationController?.popViewController(animated: true)
+        } catch let logoutError {
+            print(logoutError)
+        }
+        
+        let loginController = SignInViewController()
+        //loginController.messagesController = self
+        present(loginController, animated: true, completion: nil)
     }
     
     func fetchUser() {
