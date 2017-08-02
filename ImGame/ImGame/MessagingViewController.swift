@@ -48,6 +48,8 @@ class MessagesController: UITableViewController {
         
         checkIfUserIsLoggedIn()
         
+        self.navigationController?.isNavigationBarHidden = false
+        
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
         //        observeMessages()
