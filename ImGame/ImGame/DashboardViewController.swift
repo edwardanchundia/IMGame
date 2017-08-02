@@ -33,7 +33,9 @@ class DashboardViewController: UIViewController {
         dashboardView.carousel.delegate = self
         dashboardView.carousel.dataSource = self
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOutPressed))
+        self.navigationController?.isNavigationBarHidden = false
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(popToPrevious))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Message", style: .plain, target: self, action: #selector(pushToMessagingController))
 
@@ -56,6 +58,10 @@ class DashboardViewController: UIViewController {
         let loginController = SignInViewController()
         //loginController.messagesController = self
         present(loginController, animated: true, completion: nil)
+    }
+    
+    func popToPrevious() {
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func fetchUser() {
