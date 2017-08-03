@@ -22,6 +22,7 @@ class MainDashboardView: UIView {
         addSubview(profileImage)
         addSubview(matchButton)
         addSubview(messagingButton)
+        addSubview(localEvents)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,9 +51,11 @@ class MainDashboardView: UIView {
     
     func nameLabelConstraints() {
         nameLabel.autoPinEdge(.top, to: .bottom, of: welcomeLabel, withOffset: 10)
-        nameLabel.autoPinEdge(.right, to: .right, of: welcomeLabel, withOffset: 60)
+//        nameLabel.autoPinEdge(.right, to: .right, of: welcomeLabel, withOffset: 60)
         nameLabel.autoSetDimension(.height, toSize: 45)
-        nameLabel.autoSetDimension(.width, toSize: screenSize.width / 2)
+//        nameLabel.autoSetDimension(.width, toSize: screenSize.width / 2 + 30)
+        nameLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 50)
+        nameLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 50)
     }
     
     func profileImageConstraints() {
@@ -72,17 +75,25 @@ class MainDashboardView: UIView {
         messagingButton.autoSetDimension(.width, toSize: screenSize.width / 3)
         messagingButton.autoPinEdge(toSuperviewEdge: .right, withInset: 35)
         messagingButton.autoSetDimension(.height, toSize: 45)
+        
+        localEvents.autoSetDimension(.height, toSize: 45)
+        localEvents.autoSetDimension(.width, toSize: screenSize.width / 3)
+        localEvents.autoPinEdge(.top, to: .bottom, of: messagingButton, withOffset: 25)
+        localEvents.autoPinEdge(toSuperviewEdge: .left, withInset: screenSize.width / 3)
     }
     
     internal lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "WELCOME"
+        label.font = UIFont(name: "Noteworthy-Light", size: 40)
         //label.backgroundColor = UIColor.blue
         return label
     }()
     
     internal lazy var nameLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Georgia-Italic", size: 30)
+        label.textAlignment = .center
         //label.backgroundColor = UIColor.blue
         return label
     }()
@@ -97,6 +108,7 @@ class MainDashboardView: UIView {
         let button = UIButton()
         button.setTitle("Create Game", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
         return button
     }()
     
@@ -104,6 +116,15 @@ class MainDashboardView: UIView {
         let button = UIButton()
         button.setTitle("Messages", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
+        return button
+    }()
+    
+    internal lazy var localEvents: UIButton = {
+        let button = UIButton()
+        button.setTitle("Local Events", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
         return button
     }()
 }

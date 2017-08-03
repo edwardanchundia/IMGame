@@ -35,6 +35,8 @@
 		57846F091F31668D006EC92B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57846F081F31668D006EC92B /* LoginController.swift */; };
 		57846F0B1F325E49006EC92B /* MainDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57846F0A1F325E49006EC92B /* MainDashboardViewController.swift */; };
 		57846F0D1F325E56006EC92B /* MainDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57846F0C1F325E56006EC92B /* MainDashboardView.swift */; };
+		57846F0F1F3278F3006EC92B /* LocalEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57846F0E1F3278F3006EC92B /* LocalEventsViewController.swift */; };
+		57846F111F327C8A006EC92B /* LocalEventsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57846F101F327C8A006EC92B /* LocalEventsViews.swift */; };
 		57D63B9A1F2FFA34006BBA3C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D63B991F2FFA34006BBA3C /* SignInViewController.swift */; };
 		BC51BF5F142FFE911358245A /* Pods_ImGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79386BF4F422CDDFCE8F89F /* Pods_ImGame.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		57846F081F31668D006EC92B /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		57846F0A1F325E49006EC92B /* MainDashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDashboardViewController.swift; sourceTree = "<group>"; };
 		57846F0C1F325E56006EC92B /* MainDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDashboardView.swift; sourceTree = "<group>"; };
+		57846F0E1F3278F3006EC92B /* LocalEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalEventsViewController.swift; sourceTree = "<group>"; };
+		57846F101F327C8A006EC92B /* LocalEventsViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalEventsViews.swift; sourceTree = "<group>"; };
 		57D63B991F2FFA34006BBA3C /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B79386BF4F422CDDFCE8F89F /* Pods_ImGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C250AD6936EA835FB82E4539 /* Pods-ImGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImGame/Pods-ImGame.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				5759337E1F2F6F4A0049052E /* ImGame */,
-				57846EED1F303CD5006EC92B /* iCarousel.h */,
-				57846EEE1F303CD5006EC92B /* iCarousel.m */,
 				5759337D1F2F6F4A0049052E /* Products */,
 				EBE2EE6B2379E0B01E271E87 /* Pods */,
 				7E18C524AFAB5994AE1D79D6 /* Frameworks */,
@@ -119,6 +121,7 @@
 				575933931F2F79EB0049052E /* Model */,
 				575933971F2F7A440049052E /* Other */,
 				575933961F2F7A220049052E /* plist */,
+				57846F121F32993A006EC92B /* Obj-C Support Files */,
 			);
 			path = ImGame;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				57846EF41F3103D6006EC92B /* UserCell.swift */,
 				57846EFE1F3105E9006EC92B /* ChatInputContainer.swift */,
 				57846F001F310609006EC92B /* ChatMessageCell.swift */,
+				57846F101F327C8A006EC92B /* LocalEventsViews.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -163,6 +167,7 @@
 				57846EF01F310248006EC92B /* MessagingViewController.swift */,
 				57846EFA1F310493006EC92B /* NewMessageController.swift */,
 				57846EFC1F310524006EC92B /* ChatLogController.swift */,
+				57846F0E1F3278F3006EC92B /* LocalEventsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -185,6 +190,16 @@
 				57846F021F310641006EC92B /* Extension.swift */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		57846F121F32993A006EC92B /* Obj-C Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				57846EED1F303CD5006EC92B /* iCarousel.h */,
+				57846EEE1F303CD5006EC92B /* iCarousel.m */,
+			);
+			name = "Obj-C Support Files";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		7E18C524AFAB5994AE1D79D6 /* Frameworks */ = {
@@ -347,7 +362,9 @@
 				575933B91F2FB7F70049052E /* SignInView.swift in Sources */,
 				57846EF31F310260006EC92B /* MessagingView.swift in Sources */,
 				57D63B9A1F2FFA34006BBA3C /* SignInViewController.swift in Sources */,
+				57846F111F327C8A006EC92B /* LocalEventsViews.swift in Sources */,
 				57846EEB1F303689006EC92B /* CircularCollectionViewLayout.swift in Sources */,
+				57846F0F1F3278F3006EC92B /* LocalEventsViewController.swift in Sources */,
 				57846EFB1F310493006EC92B /* NewMessageController.swift in Sources */,
 				57846F051F3117EB006EC92B /* BoardingViewController.swift in Sources */,
 				57846F0D1F325E56006EC92B /* MainDashboardView.swift in Sources */,

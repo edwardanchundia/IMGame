@@ -28,6 +28,7 @@ class MainDashboardViewController: UIViewController {
         
         mainDashViews.matchButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         mainDashViews.messagingButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        mainDashViews.localEvents.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
         navigationController?.isNavigationBarHidden = true
     }
@@ -38,11 +39,15 @@ class MainDashboardViewController: UIViewController {
     
     func buttonPressed(button: UIButton) {
         if button.titleLabel?.text == "Create Game" {
-            let gameDashboardVC  = DashboardViewController()
-            navigationController?.pushViewController(gameDashboardVC, animated: true)
+            let gameDashboardVC  = UINavigationController(rootViewController: DashboardViewController())
+//            navigationController?.pushViewController(gameDashboardVC, animated: true)
+            present(gameDashboardVC, animated: true, completion: nil)
         } else if button.titleLabel?.text == "Messages" {
             let messagingVC = MessagesController()
             navigationController?.pushViewController(messagingVC, animated: true)
+        } else if button.titleLabel?.text == "Local Events" {
+            let localEventsVC = LocalEventsViewController()
+            navigationController?.pushViewController(localEventsVC, animated: true)
         }
     }
     
