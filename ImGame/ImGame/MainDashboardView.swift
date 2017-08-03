@@ -17,6 +17,14 @@ class MainDashboardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        addSubview(background)
+        
+        addSubview(nameBackground)
+        addSubview(localBackground)
+        addSubview(matchBackground)
+        addSubview(welcomeBackground)
+        addSubview(messageBackground)
+        
         addSubview(welcomeLabel)
         addSubview(nameLabel)
         addSubview(profileImage)
@@ -31,6 +39,7 @@ class MainDashboardView: UIView {
     
     override func updateConstraints() {
         if shouldSetupConstraints {
+            backgroundImage()
             welcomeLabelConstraints()
             nameLabelConstraints()
             profileImageConstraints()
@@ -42,7 +51,19 @@ class MainDashboardView: UIView {
         super.updateConstraints()
     }
     
+    func backgroundImage() {
+        background.autoPinEdge(toSuperviewEdge: .top)
+        background.autoPinEdge(toSuperviewEdge: .bottom)
+        background.autoPinEdge(toSuperviewEdge: .left)
+        background.autoPinEdge(toSuperviewEdge: .right)
+    }
+    
     func welcomeLabelConstraints() {
+        welcomeBackground.autoPinEdge(.left, to: .left, of: welcomeLabel, withOffset: -5)
+        welcomeBackground.autoPinEdge(.top, to: .top, of: welcomeLabel, withOffset: -5)
+        welcomeBackground.autoMatch(.height, to: .height, of: welcomeLabel)
+        welcomeBackground.autoMatch(.width, to: .width, of: welcomeLabel)
+        
         welcomeLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 35)
         welcomeLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 50)
         welcomeLabel.autoSetDimension(.height, toSize: 45)
@@ -50,6 +71,11 @@ class MainDashboardView: UIView {
     }
     
     func nameLabelConstraints() {
+        nameBackground.autoPinEdge(.left, to: .left, of: nameLabel, withOffset: -5)
+        nameBackground.autoPinEdge(.top, to: .top, of: nameLabel, withOffset: -5)
+        nameBackground.autoMatch(.height, to: .height, of: nameLabel)
+        nameBackground.autoMatch(.width, to: .width, of: nameLabel)
+        
         nameLabel.autoPinEdge(.top, to: .bottom, of: welcomeLabel, withOffset: 10)
 //        nameLabel.autoPinEdge(.right, to: .right, of: welcomeLabel, withOffset: 60)
         nameLabel.autoSetDimension(.height, toSize: 45)
@@ -66,15 +92,30 @@ class MainDashboardView: UIView {
     }
     
     func buttonConstraints() {
+        matchBackground.autoPinEdge(.left, to: .left, of: matchButton, withOffset: -5)
+        matchBackground.autoPinEdge(.top, to: .top, of: matchButton, withOffset: -5)
+        matchBackground.autoMatch(.height, to: .height, of: matchButton)
+        matchBackground.autoMatch(.width, to: .width, of: matchButton)
+        
         matchButton.autoPinEdge(.top, to: .bottom, of: profileImage, withOffset: 45)
         matchButton.autoSetDimension(.width, toSize: screenSize.width / 3)
         matchButton.autoPinEdge(toSuperviewEdge: .left, withInset: 35)
         matchButton.autoSetDimension(.height, toSize: 45)
         
+        messageBackground.autoPinEdge(.left, to: .left, of: messagingButton, withOffset: -5)
+        messageBackground.autoPinEdge(.top, to: .top, of: messagingButton, withOffset: -5)
+        messageBackground.autoMatch(.height, to: .height, of: messagingButton)
+        messageBackground.autoMatch(.width, to: .width, of: messagingButton)
+        
         messagingButton.autoPinEdge(.top, to: .bottom, of: profileImage, withOffset: 45)
         messagingButton.autoSetDimension(.width, toSize: screenSize.width / 3)
         messagingButton.autoPinEdge(toSuperviewEdge: .right, withInset: 35)
         messagingButton.autoSetDimension(.height, toSize: 45)
+        
+        localBackground.autoPinEdge(.left, to: .left, of: localEvents, withOffset: -5)
+        localBackground.autoPinEdge(.top, to: .top, of: localEvents, withOffset: -5)
+        localBackground.autoMatch(.height, to: .height, of: localEvents)
+        localBackground.autoMatch(.width, to: .width, of: localEvents)
         
         localEvents.autoSetDimension(.height, toSize: 45)
         localEvents.autoSetDimension(.width, toSize: screenSize.width / 3)
@@ -82,12 +123,35 @@ class MainDashboardView: UIView {
         localEvents.autoPinEdge(toSuperviewEdge: .left, withInset: screenSize.width / 3)
     }
     
+    
+    
+    internal lazy var background: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "wood_background")
+        return image
+    }()
+    
+    internal lazy var welcomeBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.99, green:0.93, blue:0.13, alpha:1.0)
+        view.isHidden = false
+        return view
+    }()
+    
     internal lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "WELCOME"
         label.font = UIFont(name: "Noteworthy-Light", size: 40)
         //label.backgroundColor = UIColor.blue
+        label.layer.borderWidth = 1
         return label
+    }()
+    
+    internal lazy var nameBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.99, green:0.93, blue:0.13, alpha:1.0)
+        view.isHidden = false
+        return view
     }()
     
     internal lazy var nameLabel: UILabel = {
@@ -95,6 +159,7 @@ class MainDashboardView: UIView {
         label.font = UIFont(name: "Georgia-Italic", size: 30)
         label.textAlignment = .center
         //label.backgroundColor = UIColor.blue
+        label.layer.borderWidth = 1
         return label
     }()
     
@@ -104,12 +169,27 @@ class MainDashboardView: UIView {
         return imageView
     }()
     
+    internal lazy var matchBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.99, green:0.93, blue:0.13, alpha:1.0)
+        view.isHidden = false
+        return view
+    }()
+    
     internal lazy var matchButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create Game", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
+        button.layer.borderWidth = 1
         return button
+    }()
+    
+    internal lazy var messageBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.99, green:0.93, blue:0.13, alpha:1.0)
+        view.isHidden = false
+        return view
     }()
     
     internal lazy var messagingButton: UIButton = {
@@ -117,7 +197,15 @@ class MainDashboardView: UIView {
         button.setTitle("Messages", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
+        button.layer.borderWidth = 1
         return button
+    }()
+    
+    internal lazy var localBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.99, green:0.93, blue:0.13, alpha:1.0)
+        view.isHidden = false
+        return view
     }()
     
     internal lazy var localEvents: UIButton = {
@@ -125,6 +213,7 @@ class MainDashboardView: UIView {
         button.setTitle("Local Events", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
+        button.layer.borderWidth = 1
         return button
     }()
 }
