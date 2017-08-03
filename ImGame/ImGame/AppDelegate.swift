@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        UIBarButtonItem.appearance().tintColor = UIColor.black
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = BoardingViewController()
 //        self.window?.rootViewController = UINavigationController(rootViewController: MessagesController())

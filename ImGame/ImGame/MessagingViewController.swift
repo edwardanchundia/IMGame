@@ -41,7 +41,8 @@ class MessagesController: UITableViewController {
         super.viewDidLoad()
         
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(popToPrevious))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(popToPrevious))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_flip_to_back"), style: .plain, target: self, action: #selector(popToPrevious))
         
         let image = UIImage(named: "new_message_icon")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(handleNewMessage))
@@ -49,6 +50,9 @@ class MessagesController: UITableViewController {
         checkIfUserIsLoggedIn()
         
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
         
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         

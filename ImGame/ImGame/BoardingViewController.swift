@@ -11,15 +11,24 @@ import FirebaseAuth
 
 class BoardingViewController: UIViewController {
 
+    var boardingView: BoardingView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        boardingView = BoardingView(frame: CGRect.zero)
+        self.view.addSubview(boardingView)
+        
+        view.backgroundColor = .white
+        
+        boardingView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets.zero)
 
-        // Do any additional setup after loading the view.
-//        UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseInOut, animations: {
-//            self.view.alpha = 1.0
-//        }, completion: nil)
-        view.backgroundColor = UIColor(red:0.99, green:0.93, blue:0.13, alpha:1.0)
-        perform(#selector(checkSignIn), with: nil, afterDelay: 2)
+        UIView.animate(withDuration: 4.0, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.boardingView.logo.alpha = 1.0
+        }, completion: nil)
+        
+        //view.backgroundColor = UIColor(red:0.99, green:0.93, blue:0.13, alpha:1.0)
+        perform(#selector(checkSignIn), with: nil, afterDelay: 4)
     }
     
     func checkSignIn() {

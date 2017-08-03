@@ -116,11 +116,12 @@ class DashboardView: UIView {
     
     internal lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "First Last Name"
+        label.text = ""
         label.textColor = UIColor.black
         label.layer.borderWidth = 1
         label.isHidden = false
         label.textAlignment = .center
+        label.font = UIFont(name: "Noteworthy-Light", size: 25)
         return label
     }()
     
@@ -133,12 +134,13 @@ class DashboardView: UIView {
     
     internal lazy var matchingStatus: UILabel = {
         let label = UILabel()
-        label.text = "XX% Compatible"
+        label.text = ""
         //label.backgroundColor = UIColor.black
         label.textColor = UIColor.black
         label.layer.borderWidth = 1
         //label.isHidden = false
         label.textAlignment = .center
+        label.font = UIFont(name: "Noteworthy-Light", size: 15)
         return label
     }()
     
