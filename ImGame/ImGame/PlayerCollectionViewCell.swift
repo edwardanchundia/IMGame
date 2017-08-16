@@ -16,7 +16,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         contentView.addSubview(view1)
-        view1.backgroundColor = UIColor.white
+        //view1.backgroundColor = UIColor.white
         viewConstraints()
     }
     

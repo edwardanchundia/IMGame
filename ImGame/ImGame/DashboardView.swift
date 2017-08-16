@@ -18,6 +18,8 @@ class DashboardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        addSubview(background)
+        
         self.addSubview(carousel)
         self.addSubview(nameBackground)
         self.addSubview(nameLabel)
@@ -33,6 +35,7 @@ class DashboardView: UIView {
 
     override func updateConstraints() {
         if shouldSetupConstraints {
+            backgroundImage()
             carouselViewContraints()
             joinButtonBackground()
             nameLabelConstraints()
@@ -43,6 +46,13 @@ class DashboardView: UIView {
         }
         
         super.updateConstraints()
+    }
+    
+    func backgroundImage() {
+        background.autoPinEdge(toSuperviewEdge: .top)
+        background.autoPinEdge(toSuperviewEdge: .bottom)
+        background.autoPinEdge(toSuperviewEdge: .left)
+        background.autoPinEdge(toSuperviewEdge: .right)
     }
     
     func carouselViewContraints() {
@@ -98,11 +108,17 @@ class DashboardView: UIView {
         //getStartedButton.autoSetDimension(.width, toSize: screenSize.width / 5)
     }
     
+    internal lazy var background: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "Bitmap")
+        return image
+    }()
+    
     internal lazy var playerCollectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.black
+        //collectionView.backgroundColor = UIColor.black
         //collectionView.collectionViewLayout = UICollectionViewLayout()
         return collectionView
     }()

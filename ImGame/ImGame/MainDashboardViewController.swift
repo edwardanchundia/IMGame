@@ -38,14 +38,14 @@ class MainDashboardViewController: UIViewController {
     }
     
     func buttonPressed(button: UIButton) {
-        if button.titleLabel?.text == "Create Game" {
+        if button.tag == 0 {
             let gameDashboardVC  = UINavigationController(rootViewController: DashboardViewController())
 //            navigationController?.pushViewController(gameDashboardVC, animated: true)
             present(gameDashboardVC, animated: true, completion: nil)
-        } else if button.titleLabel?.text == "Messages" {
+        } else if button.tag == 1 {
             let messagingVC = MessagesController()
             navigationController?.pushViewController(messagingVC, animated: true)
-        } else if button.titleLabel?.text == "Local Events" {
+        } else if button.tag == 2 {
             let localEventsVC = LocalEventsViewController()
             navigationController?.pushViewController(localEventsVC, animated: true)
         }
@@ -95,7 +95,8 @@ class MainDashboardViewController: UIViewController {
             mainDashViews.profileImage.contentMode = .scaleAspectFill
             mainDashViews.profileImage.layer.cornerRadius = 100
             mainDashViews.profileImage.clipsToBounds = true
-            mainDashViews.profileImage.loadImageUsingCacheWithUrlString(profileImageUrl)
+            mainDashViews.profileImage.image = UIImage(named: "brandin")
+            //mainDashViews.profileImage.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
         
         if let name = user.name {

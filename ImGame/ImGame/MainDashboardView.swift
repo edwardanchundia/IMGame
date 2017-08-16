@@ -19,18 +19,21 @@ class MainDashboardView: UIView {
         
         addSubview(background)
         
-        addSubview(nameBackground)
-        addSubview(localBackground)
-        addSubview(matchBackground)
-        addSubview(welcomeBackground)
-        addSubview(messageBackground)
+//        addSubview(nameBackground)
+//        addSubview(localBackground)
+//        addSubview(matchBackground)
+//        addSubview(welcomeBackground)
+//        addSubview(messageBackground)
         
-        addSubview(welcomeLabel)
-        addSubview(nameLabel)
-        addSubview(profileImage)
+//        addSubview(welcomeLabel)
+//        addSubview(nameLabel)
+//        addSubview(profileImage)
         addSubview(matchButton)
         addSubview(messagingButton)
         addSubview(localEvents)
+        
+        addSubview(logoImage)
+        addSubview(profileImage)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,8 +43,9 @@ class MainDashboardView: UIView {
     override func updateConstraints() {
         if shouldSetupConstraints {
             backgroundImage()
-            welcomeLabelConstraints()
-            nameLabelConstraints()
+            //welcomeLabelConstraints()
+            //nameLabelConstraints()
+            logoConstraints()
             profileImageConstraints()
             buttonConstraints()
             
@@ -84,42 +88,49 @@ class MainDashboardView: UIView {
         nameLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 50)
     }
     
+    func logoConstraints() {
+        logoImage.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
+        logoImage.autoPinEdge(toSuperviewEdge: .left, withInset: 145)
+        logoImage.autoPinEdge(toSuperviewEdge: .right, withInset: 145)
+        logoImage.autoSetDimension(.height, toSize: 90)
+    }
+    
     func profileImageConstraints() {
-        profileImage.autoPinEdge(.top, to: .bottom, of: nameLabel, withOffset: 25)
+        profileImage.autoPinEdge(.top, to: .bottom, of: logoImage, withOffset: 25)
         profileImage.autoPinEdge(toSuperviewEdge: .left, withInset: screenSize.width / 4)
         profileImage.autoPinEdge(toSuperviewEdge: .right, withInset: screenSize.width / 4)
         profileImage.autoSetDimension(.height, toSize: screenSize.width / 4 * 2)
     }
     
     func buttonConstraints() {
-        matchBackground.autoPinEdge(.left, to: .left, of: matchButton, withOffset: -5)
-        matchBackground.autoPinEdge(.top, to: .top, of: matchButton, withOffset: -5)
-        matchBackground.autoMatch(.height, to: .height, of: matchButton)
-        matchBackground.autoMatch(.width, to: .width, of: matchButton)
+//        matchBackground.autoPinEdge(.left, to: .left, of: matchButton, withOffset: -5)
+//        matchBackground.autoPinEdge(.top, to: .top, of: matchButton, withOffset: -5)
+//        matchBackground.autoMatch(.height, to: .height, of: matchButton)
+//        matchBackground.autoMatch(.width, to: .width, of: matchButton)
         
         matchButton.autoPinEdge(.top, to: .bottom, of: profileImage, withOffset: 45)
         matchButton.autoSetDimension(.width, toSize: screenSize.width / 3)
         matchButton.autoPinEdge(toSuperviewEdge: .left, withInset: 35)
-        matchButton.autoSetDimension(.height, toSize: 45)
+        matchButton.autoSetDimension(.height, toSize: 60)
         
-        messageBackground.autoPinEdge(.left, to: .left, of: messagingButton, withOffset: -5)
-        messageBackground.autoPinEdge(.top, to: .top, of: messagingButton, withOffset: -5)
-        messageBackground.autoMatch(.height, to: .height, of: messagingButton)
-        messageBackground.autoMatch(.width, to: .width, of: messagingButton)
+//        messageBackground.autoPinEdge(.left, to: .left, of: messagingButton, withOffset: -5)
+//        messageBackground.autoPinEdge(.top, to: .top, of: messagingButton, withOffset: -5)
+//        messageBackground.autoMatch(.height, to: .height, of: messagingButton)
+//        messageBackground.autoMatch(.width, to: .width, of: messagingButton)
         
         messagingButton.autoPinEdge(.top, to: .bottom, of: profileImage, withOffset: 45)
         messagingButton.autoSetDimension(.width, toSize: screenSize.width / 3)
         messagingButton.autoPinEdge(toSuperviewEdge: .right, withInset: 35)
-        messagingButton.autoSetDimension(.height, toSize: 45)
+        messagingButton.autoSetDimension(.height, toSize: 60)
         
-        localBackground.autoPinEdge(.left, to: .left, of: localEvents, withOffset: -5)
-        localBackground.autoPinEdge(.top, to: .top, of: localEvents, withOffset: -5)
-        localBackground.autoMatch(.height, to: .height, of: localEvents)
-        localBackground.autoMatch(.width, to: .width, of: localEvents)
+//        localBackground.autoPinEdge(.left, to: .left, of: localEvents, withOffset: -5)
+//        localBackground.autoPinEdge(.top, to: .top, of: localEvents, withOffset: -5)
+//        localBackground.autoMatch(.height, to: .height, of: localEvents)
+//        localBackground.autoMatch(.width, to: .width, of: localEvents)
         
-        localEvents.autoSetDimension(.height, toSize: 45)
+        localEvents.autoSetDimension(.height, toSize: 60)
         localEvents.autoSetDimension(.width, toSize: screenSize.width / 3)
-        localEvents.autoPinEdge(.top, to: .bottom, of: messagingButton, withOffset: 25)
+        localEvents.autoPinEdge(.top, to: .bottom, of: messagingButton, withOffset: 35)
         localEvents.autoPinEdge(toSuperviewEdge: .left, withInset: screenSize.width / 3)
     }
     
@@ -127,7 +138,7 @@ class MainDashboardView: UIView {
     
     internal lazy var background: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "wood_background")
+        image.image = UIImage(named: "Bitmap")
         return image
     }()
     
@@ -163,6 +174,13 @@ class MainDashboardView: UIView {
         return label
     }()
     
+    internal lazy var logoImage: UIImageView = {
+        let imageView = UIImageView()
+        //imageView.backgroundColor = .blue
+        imageView.image = UIImage(named: "IMGame_Logo (1)")
+        return imageView
+    }()
+    
     internal lazy var profileImage: UIImageView = {
         let imageView = UIImageView()
         //imageView.backgroundColor = .blue
@@ -178,10 +196,12 @@ class MainDashboardView: UIView {
     
     internal lazy var matchButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Create Game", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
-        button.layer.borderWidth = 1
+        button.setImage(UIImage(named: "icons8-Today-100"), for: .normal)
+        button.tag = 0
+        //wont work without title to listen to
+//        button.setTitleColor(.black, for: .normal)
+//        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
+        //button.layer.borderWidth = 1
         return button
     }()
     
@@ -194,10 +214,11 @@ class MainDashboardView: UIView {
     
     internal lazy var messagingButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Messages", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
-        button.layer.borderWidth = 1
+        button.setImage(UIImage(named: "icons8-Speech Bubble-100"), for: .normal)
+        button.tag = 1
+        //button.setTitleColor(.black, for: .normal)
+        //button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
+        //button.layer.borderWidth = 1
         return button
     }()
     
@@ -210,10 +231,12 @@ class MainDashboardView: UIView {
     
     internal lazy var localEvents: UIButton = {
         let button = UIButton()
-        button.setTitle("Local Events", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
-        button.layer.borderWidth = 1
+//        button.setTitle("Local Events", for: .normal)
+        button.setImage(UIImage(named: "icons8-Marker-100"), for: .normal)
+        button.tag = 2
+//        button.setTitleColor(.black, for: .normal)
+//        button.titleLabel?.font = UIFont(name: "Noteworthy-Light", size: 25)
+        //button.layer.borderWidth = 1
         return button
     }()
 }

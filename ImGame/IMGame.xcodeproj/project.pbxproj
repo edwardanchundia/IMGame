@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57477AB81F33729F005A5952 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57477AB71F33729F005A5952 /* Capital.swift */; };
+		57477ABA1F3374D0005A5952 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57477AB91F3374D0005A5952 /* EventViewController.swift */; };
+		57477ABC1F3374F9005A5952 /* EventViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57477ABB1F3374F9005A5952 /* EventViews.swift */; };
 		575933801F2F6F4A0049052E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5759337F1F2F6F4A0049052E /* AppDelegate.swift */; };
 		575933821F2F6F4A0049052E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575933811F2F6F4A0049052E /* ViewController.swift */; };
 		575933871F2F6F4A0049052E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 575933861F2F6F4A0049052E /* Assets.xcassets */; };
@@ -42,6 +45,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57477AB71F33729F005A5952 /* Capital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		57477AB91F3374D0005A5952 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		57477ABB1F3374F9005A5952 /* EventViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViews.swift; sourceTree = "<group>"; };
 		5759337C1F2F6F4A0049052E /* ImGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5759337F1F2F6F4A0049052E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		575933811F2F6F4A0049052E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 				57846EFE1F3105E9006EC92B /* ChatInputContainer.swift */,
 				57846F001F310609006EC92B /* ChatMessageCell.swift */,
 				57846F101F327C8A006EC92B /* LocalEventsViews.swift */,
+				57477AB71F33729F005A5952 /* Capital.swift */,
+				57477ABB1F3374F9005A5952 /* EventViews.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 				57846EFA1F310493006EC92B /* NewMessageController.swift */,
 				57846EFC1F310524006EC92B /* ChatLogController.swift */,
 				57846F0E1F3278F3006EC92B /* LocalEventsViewController.swift */,
+				57477AB91F3374D0005A5952 /* EventViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -349,6 +358,8 @@
 				575933B71F2FB7CE0049052E /* BoardingView.swift in Sources */,
 				57846EE31F3030DD006EC92B /* DashboardViewController.swift in Sources */,
 				57846EE91F30350D006EC92B /* PlayerCollectionViewCell.swift in Sources */,
+				57477ABA1F3374D0005A5952 /* EventViewController.swift in Sources */,
+				57477AB81F33729F005A5952 /* Capital.swift in Sources */,
 				57846EFF1F3105E9006EC92B /* ChatInputContainer.swift in Sources */,
 				575933821F2F6F4A0049052E /* ViewController.swift in Sources */,
 				57846EF91F310458006EC92B /* User.swift in Sources */,
@@ -362,6 +373,7 @@
 				57846EE51F3030EF006EC92B /* DashboardView.swift in Sources */,
 				575933B91F2FB7F70049052E /* SignInView.swift in Sources */,
 				57846EF31F310260006EC92B /* MessagingView.swift in Sources */,
+				57477ABC1F3374F9005A5952 /* EventViews.swift in Sources */,
 				57D63B9A1F2FFA34006BBA3C /* SignInViewController.swift in Sources */,
 				57846F111F327C8A006EC92B /* LocalEventsViews.swift in Sources */,
 				57846EEB1F303689006EC92B /* CircularCollectionViewLayout.swift in Sources */,
